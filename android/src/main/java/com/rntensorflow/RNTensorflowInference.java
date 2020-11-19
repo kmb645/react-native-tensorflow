@@ -64,8 +64,7 @@ public class RNTensorflowInference {
             for (String outputName : outputNames) {
                 tfContext.runner.fetch(outputName);
             }
-            List<Tensor> tensors = tfContext.runner.run();
-
+            List<Tensor<?>> tensors = tfContext.runner.run();
             tfContext.outputTensors.clear();
             for (int i = 0; i < outputNames.length; i++) {
                 tfContext.outputTensors.put(outputNames[i], tensors.get(i));
